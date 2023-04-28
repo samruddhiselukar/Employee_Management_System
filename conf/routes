@@ -1,0 +1,26 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# https://www.playframework.com/documentation/latest/ScalaRouting
+# ~~~~
+
+# An example controller showing a sample home page
+GET     /                           controllers.HomeController.index()
+
+# Map static resources from the /public folder to the /assets URL path
+GET     /assets/*file               controllers.Assets.versioned(path="/public", file: Asset)
+
+
+# List all employees
+GET  /apis/records/listAllEmployees/:companyID  controllers.apis.EmployeeDataController.listAllEmployees(companyID: Int)
+
+# Get employee by ID
+GET  /apis/records/getEmployee/:companyID/:employeeID  controllers.apis.EmployeeDataController.getEmployee(employeeID: Int, companyID: Int)
+
+# Add new employee
+POST /apis/records/addEmployee/:companyID  controllers.apis.EmployeeDataController.addEmployee(companyID: Int)
+
+# Update existing employee
+PUT  /apis/records/updateEmployee/:companyID/:employeeID  controllers.apis.EmployeeDataController.updateEmployee(employeeID: Int, companyID: Int)
+
+# Delete employee
+DELETE /apis/records/deleteEmployee/:companyID/:employeeID  controllers.apis.EmployeeDataController.deleteEmployee(employeeID: Int, companyID: Int)
